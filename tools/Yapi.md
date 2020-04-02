@@ -3,12 +3,12 @@ Yapi安装及使用 demo地址传送  http://yapi.demo.qunar.com
 
 
 环境准备
-    操作系统  centos  
-    环境要求必须    
-        nodejs  > 7.6  
-        mongodb > 2.6  
-        git   
-        curl   
+　　　操作系统  centos  
+　　　环境要求必须    
+　　　　　nodejs  > 7.6  
+　　　　　mongodb > 2.6  
+　　　　　git   
+　　　　　curl   
 
 安装nodejs   
     1 获取资源  
