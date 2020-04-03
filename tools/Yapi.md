@@ -30,16 +30,17 @@ Yapi安装及使用 demo地址传送  http://yapi.demo.qunar.com
         name=MongoDB Repository     
         baseurl=http://mirrors.aliyun.com/mongodb/yum/redhat/7Server/mongodb-org/3.2/x86_64/    
         gpgcheck=0      		
-        enabled=1      	
-4 安装mongodb	
+        enabled=1  
+    ****  	
+    4 安装mongodb	
         yum install -y mongodb-org		
-5 启动mongodb   			
+    5 启动mongodb   			
         service mongod start   		
-6 设置开机启动  		
+    6 设置开机启动  		
         chkconfig mongod on	 		
-7 修改mongod.conf配置文件	   		
+    7 修改mongod.conf配置文件	   		
         注释 bindIp  127.0.0.1   	
-8 重启mongod	  		
+    8 重启mongod	  		
         service mongod restart		
 
 安装git     	  		
