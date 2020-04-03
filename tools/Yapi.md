@@ -2,34 +2,39 @@ Yapi安装及使用 demo地址传送  http://yapi.demo.qunar.com
 
 
 
-环境准备
-　　　操作系统  centos  
-　　　环境要求必须    
-　　　　　nodejs  > 7.6  
-　　　　　mongodb > 2.6  
-　　　　　git   
-　　　　　curl   
+环境准备  
+    操作系统  centos     
+    环境要求必须      
+        nodejs  > 7.6     
+        mongodb > 2.6     
+        git        
+        curl       
 
-安装nodejs   
-    1 获取资源  
-        curl -sL https://rpm.nodesource.com/setup_8.x | bash -  
+安装nodejs     
+    1 获取资源    
+        curl -sL https://rpm.nodesource.com/setup_8.x | bash - 
+
     2 安装  
         yum install -y nodejs  
+
     3 查看版本  
         node -v  
+
     4 查看npm版本  
         npm -v  
 
 安装mongodb  
     1 更新yum源  非必须  
-        yum -y update  
+        yum -y update 
+
     2 添加 mongodb源文件     
-        vim /etc/yum.repos.d/mongodb-org.repo    
+        vim /etc/yum.repos.d/mongodb-org.repo 
+
     3 添加一下内容    
-        [mongodb-org]    
-        name=MongoDB Repository     
+        [mongodb-org]     
+        name=MongoDB Repository       
         baseurl=http://mirrors.aliyun.com/mongodb/yum/redhat/7Server/mongodb-org/3.2/x86_64/    
-        gpgcheck=0        		
+        gpgcheck=0         		
         enabled=1    
    
     4 安装mongodb	
@@ -47,16 +52,16 @@ Yapi安装及使用 demo地址传送  http://yapi.demo.qunar.com
     8 重启mongod	    		
         service mongod restart		
 
-安装git       	  		
-    yum -y install git   		
+安装git        	  		
+      yum -y install git   		
 	   	
 搭建Yapi环境	     	
-    npm install -g yapi-cli --registry https://registry.npm.taobao.org  		
+      npm install -g yapi-cli --registry https://registry.npm.taobao.org  		
     	
 运行	     	
-    yapi server	    	
+      yapi server	    	
    	   
-初始化账号密码        		
+初始化账号密码         		
     账号名  admin@admin.com         		 
     密码  passwd         		
     
