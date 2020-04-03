@@ -29,37 +29,41 @@ Yapi安装及使用 demo地址传送  http://yapi.demo.qunar.com
         [mongodb-org]    
         name=MongoDB Repository     
         baseurl=http://mirrors.aliyun.com/mongodb/yum/redhat/7Server/mongodb-org/3.2/x86_64/    
-        gpgcheck=0      		
-        enabled=1  
-    ****  	
+        gpgcheck=0        		
+        enabled=1    
+   
     4 安装mongodb	
-        yum install -y mongodb-org		
-    5 启动mongodb   			
-        service mongod start   		
-    6 设置开机启动  		
-        chkconfig mongod on	 		
-    7 修改mongod.conf配置文件	   		
-        注释 bindIp  127.0.0.1   	
-    8 重启mongod	  		
+        yum install -y mongodb-org  	
+
+    5 启动mongodb     			
+        service mongod start     	
+
+    6 设置开机启动  	  	
+        chkconfig mongod on  	 
+
+    7 修改mongod.conf配置文件  	   		
+        注释 bindIp  127.0.0.1     
+    
+    8 重启mongod	    		
         service mongod restart		
 
-安装git     	  		
-    yum -y install git		
-		
-搭建Yapi环境	  	
+安装git       	  		
+    yum -y install git   		
+	   	
+搭建Yapi环境	     	
     npm install -g yapi-cli --registry https://registry.npm.taobao.org  		
     	
-运行	  	
-    yapi server	  	
-   	
-初始化账号密码     		
-    账号名  admin@admin.com       		 
-    密码  passwd       		
-
-进入安装目录     		
-    cd /you_path/my-yapi       		
-    		  
-启动服务           		
+运行	     	
+    yapi server	    	
+   	   
+初始化账号密码        		
+    账号名  admin@admin.com         		 
+    密码  passwd         		
+    
+进入安装目录        		
+    cd /you_path/my-yapi         		
+    	  	  
+启动服务             		
     node vendors/server/app.js        		
    		
 加入后台启动      		
