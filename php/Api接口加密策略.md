@@ -61,16 +61,12 @@ Api接口安全要求：
 			url = api/test/index
 
 			data['Action'] = 'index';
-
 			data['model'] = 'test';
-
 			data['api'] = 'info';
-
 			data['_sign'] = 'daa1f9ec578df43e9bae4e70215574def5040ae8';
-
 			data['_timestamp'] = 155559999;
 
-			http_request(url,data);
+			http_request(url,data);  //开始请求
 
 
 
