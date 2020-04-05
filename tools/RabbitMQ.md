@@ -1,10 +1,10 @@
 ##  rabbitMQ资料
 
 什么是rabbitmq? 
-  
-  RabbitMQ是一款开源的，Erlang编写的，基于AMQP协议的，消息中间件；
 
-  可以用它来：解耦、异步、削峰
+    RabbitMQ是一款开源的，Erlang编写的，基于AMQP协议的，消息中间件；
+
+    可以用它来：解耦、异步、削峰
  
 为什么用rabbitmq?  
   
