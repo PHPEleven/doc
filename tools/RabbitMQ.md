@@ -165,92 +165,14 @@ centos7安装rabbitmq
 
 10.php示例 生产与消费：
 
-  配置项目  
-  $conn_args = [
-          'host'=>'127.0.0.1',  
-          'port'=>5672,  
-          'login'=>'admin',  
-          'password'=>'admin',  
-          'vhost'=>'/'  
-  ];    
+    消费者   
 
-  //创建连接和channel    
-  $conn = new AMQPConnection($conn_args);    
-  if (!$conn->connect()) {  
-      die("Cannot connect to the broker!\n");   
-  }   
+![image](https://github.com/PHPEleven/doc/blob/master/images/consumber.png?raw=true)
+    
+    生产者
 
-  消费者
+![image](https://github.com/PHPEleven/doc/blob/master/images/publish.png?raw=true)
 
-  <?php
-
-      $e_name = 'e_linvo'; //交换机名  
-      $q_name = 'q_linvo'; //队列名  
-      $k_route = 'key_1'; //路由key  
-
-      $channel = new AMQPChannel($conn);    
-      //创建交换机  
-      $ex = new AMQPExchange($channel);  
-      $ex->setName($e_name);   
-      $ex->setType(AMQP_EX_TYPE_DIRECT); //direct类型   
-      $ex->setFlags(AMQP_DURABLE); //持久化  
-      echo "Exchange Status:".$ex->declare()."\n";   
-
-      //创建队列  
-      $q = new AMQPQueue($channel);  
-      $q->setName($q_name);  
-      $q->setFlags(AMQP_DURABLE); //持久化    
-      echo "Message Total:".$q->declare()."\n";     
-
-      //绑定交换机与队列，并指定路由键    
-      echo 'Queue Bind: '.$q->bind($e_name, $k_route)."\n";   
-
-      //阻塞模式接收消息  
-      echo "Message:\n";  
-      while(True){  
-          $q->consume('processMessage');  
-          //$q->consume('processMessage', AMQP_AUTOACK); //自动ACK应答    
-      }  
-      $conn->disconnect();  
-       
-      /**
-       *  
-       * 消费回调函数     
-       * 处理消息     
-       */
-      function processMessage($envelope, $queue) {   
-          $msg = $envelope->getBody();   
-          echo $msg."\n"; //处理消息   
-          $queue->ack($envelope->getDeliveryTag()); //手动发送ACK应答     
-      }   
-
-  生产者   
-  
-  <?php  
-      //配置信息  
-      $e_name = 'e_linvo'; //交换机名   
-      //$q_name = 'q_linvo'; //无需队列名  
-      $k_route = 'key_1'; //路由key  
-      $channel = new AMQPChannel($conn);  
- 
-      //创建交换机对象   
-      $ex = new AMQPExchange($channel);   
-      $ex->setName($e_name);   
-      date_default_timezone_set("Asia/Shanghai");   
-      //发送消息   
-      //$channel->startTransaction(); //开始事务  
-      for($i=0; $i<10; ++$i){  
-          sleep(1);  
-          //消息内容   
-          $message = "test msg time is ->".date("Y-m-d H:i:s");     
-          echo "Send Message:".($ex->publish($message, $k_route)?'发送成功':'发送失败')."\n";      
-      }   
-
-      //$channel->rollbackTransaction();//回滚事务 出现异常      
-      //$channel->commitTransaction(); //提交事务 无异常提交    
-      $conn->disconnect();     
-       
-  
 
 消费者 消费数据  
 生产者  生产者一旦有数据进入 消费者会马上进行消费   
