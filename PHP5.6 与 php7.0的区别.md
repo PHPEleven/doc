@@ -59,31 +59,31 @@ use 语句
 	php7  use const some\namespace\{ConstA, ConstB, ConstC};
 
 实例化一个匿名类
-	
-		interface Logger {
 
-		   public function log(string $msg);  
+	interface Logger {
 
-		}  
+	   public function log(string $msg);  
 
-		class Application {  
-		   	private $logger;  
-		   	public function getLogger(): Logger {  
-		      	return $this->logger;   
-		   	}     
-		   	public function setLogger(Logger $logger) {  
-		      	$this->logger = $logger;  
-		   	}   
-		}  
+	}  
 
-		$app = new Application;  
-		// 使用 new class 创建匿名类  
-		$app->setLogger(new class implements Logger {   
-		   	public function log(string $msg) {    
-		      	print($msg);  		  
-		   	}  					
-		});   
-		$app->getLogger()->log("write log");  
+	class Application {  
+	   	private $logger;  
+	   	public function getLogger(): Logger {  
+	      	return $this->logger;   
+	   	}     
+	   	public function setLogger(Logger $logger) {  
+	      	$this->logger = $logger;  
+	   	}   
+	}  
+
+	$app = new Application;  
+	// 使用 new class 创建匿名类  
+	$app->setLogger(new class implements Logger {   
+	   	public function log(string $msg) {    
+	      	print($msg);  		  
+	   	}  					
+	});   
+	$app->getLogger()->log("write log");  
 
 
 int random_int(int $min,int $max);  返回一个指定范围内的int型数字
