@@ -80,6 +80,24 @@ step 6 性能测试 [left join where] 如何测试？order_0表约2.3万； orde
 
 	3 |  0.68636000 | SELECT o1.userId, o1.id , o1.`name` , o1.orderId , od1.total , od1.price FROM order_0 AS o1 LEFT JOIN order_detail_0 AS od1 ON o1.id = od1.orderId;
 
-step 8 总结
+step 7 总结
 	
 	以上测试总结： 5.7与8.0 在left join和 where条件上 加索引和不加索引 8.0要快三倍左右
+
+step 8 explan分析
+
+	mysql5.7 where 分析
+
+![image](https://github.com/PHPEleven/doc/blob/master/images/mysql5.7%20and%20where.png?raw=true)
+
+	mysql8 where 分析
+
+![image](https://github.com/PHPEleven/doc/blob/master/images/mysql8.0%20and%20where.png?raw=true)
+
+	mysql5.7 不加where
+
+![image](https://github.com/PHPEleven/doc/blob/master/images/mysql5.7%20no%20where.png?raw=true)
+
+	mysql8 不加where
+
+![image](https://github.com/PHPEleven/doc/blob/master/images/mysql8.0%20no%20where.png?raw=true)
